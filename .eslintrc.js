@@ -5,7 +5,11 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json',
   },
-  rules: Object.fromEntries(
-    Object.keys(stylisticPlugin.configs['all-flat'].rules ?? {}).map((key) => [key, 'off']),
-  ),
+  rules: {
+    ...Object.fromEntries(
+      Object.keys(stylisticPlugin.configs['all-flat'].rules ?? {}).map((key) => [key, 'off']),
+    ),
+    'import/no-unresolved': 'off', // Doesn't support imports without a "main" field
+    'import/no-extraneous-dependencies': 'off', // Issues with peerDependencies
+  },
 };

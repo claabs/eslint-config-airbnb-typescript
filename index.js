@@ -16,22 +16,19 @@ const reactConfig = {
     // Original: ['.jsx']
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
   },
-}
+};
 
 const legacyReactConfig = {
   extends: ['./lib/shared'].map((path) => require.resolve(path)),
   ...reactConfig,
-}
+};
 
-const flatReactConfig = [
-  ...baseFlat,
-  reactConfig,
-]
+const flatReactConfig = [...baseFlat, reactConfig];
 
 const flatConfigs = {
   base: baseFlat,
   react: flatReactConfig,
-}
+};
 
 module.exports = {
   ...legacyReactConfig, // This file adds some React specific settings. Not using React? Use base.js instead.
