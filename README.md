@@ -55,6 +55,7 @@ Then you'll want to set up your `eslint.config.js` something like this:
 
 ```js
 import { FlatCompat } from '@eslint/eslintrc';
+import airbnbTs from '@kesills/eslint-config-airbnb-typescript';
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
@@ -63,11 +64,11 @@ const compat = new FlatCompat({
 export default [
   // Without React
   ...compat.extends('airbnb-base'),
-  ...compat.extends('@kesills/airbnb-typescript/base'),
+  ...airbnbTs.configs.base,
 
   // With React
   ...compat.extends('airbnb'),
-  ...compat.extends('@kesills/airbnb-typescript'),
+  ...airbnbTs.configs.react,
 
   // Either way
   {
