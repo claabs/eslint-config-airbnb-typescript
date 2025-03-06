@@ -28,7 +28,7 @@
   "scripts": {
     "lint": "run-s lint:style lint:source lint:types",
     "lint:fix": "run-s lint:style:fix lint:source:fix",
-    "lint:source": "eslint -c .eslintrc.js .; eslint -c eslint.config.mjs .",
+    "lint:source": "ESLINT_USE_FLAT_CONFIG=false eslint -c .eslintrc.js .; eslint -c eslint.config.mjs .",
     "lint:source:fix": "eslint --fix .",
     "lint:style": "prettier --check .",
     "lint:style:fix": "prettier --write .",
