@@ -1,6 +1,6 @@
 {
   "name": "@kesills/eslint-config-airbnb-typescript",
-  "version": "19.0.0",
+  "version": "20.0.0",
   "description": "Airbnb's ESLint config with TypeScript support",
   "keywords": [
     "airbnb",
@@ -28,7 +28,7 @@
   "scripts": {
     "lint": "run-s lint:style lint:source lint:types",
     "lint:fix": "run-s lint:style:fix lint:source:fix",
-    "lint:source": "eslint .",
+    "lint:source": "eslint -c .eslintrc.js .; eslint -c eslint.config.mjs .",
     "lint:source:fix": "eslint --fix .",
     "lint:style": "prettier --check .",
     "lint:style:fix": "prettier --write .",
@@ -61,15 +61,16 @@
     "@semantic-release/github": "^11.0.1",
     "@semantic-release/npm": "^12.0.1",
     "@semantic-release/release-notes-generator": "^14.0.1",
+    "@types/eslint-config-prettier": "^6.11.3",
     "conventional-changelog-conventionalcommits": "^8.0.0",
-    "eslint-config-prettier": "10.0.1",
+    "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-import": "2.31.0",
     "husky": "9.1.7",
     "npm-run-all2": "7.0.2",
     "prettier": "3.4.2",
     "prettier-plugin-packagejson": "^2.5.2",
     "semantic-release": "^24.1.0",
-    "typescript": "5.7.3"
+    "typescript": "~5.5.4"
   },
   "peerDependencies": {
     "@stylistic/eslint-plugin": "^2.6.1",
@@ -90,5 +91,9 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@types/eslint": "^9.6.1"
   }
 }

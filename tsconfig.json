@@ -2,7 +2,7 @@
   "include": ["**/*", "**/.*"],
   "compilerOptions": {
     "target": "es2020",
-    "module": "commonjs",
+    "module": "node16",
     "allowJs": true,
     "checkJs": true,
     "noEmit": true,
