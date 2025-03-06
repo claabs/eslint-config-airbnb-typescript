@@ -19,11 +19,20 @@
   },
   "license": "MIT",
   "author": "Kenneth Sills <ksills.dev@gmail.com>",
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "main": "index.js",
   "files": [
     "NOTICE",
     "lib",
-    "base.js"
+    "base.js",
+    "index.d.ts"
   ],
   "scripts": {
     "lint": "run-s lint:style lint:source lint:types",
