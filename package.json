@@ -37,7 +37,7 @@
   "scripts": {
     "lint": "run-s lint:style lint:source lint:types",
     "lint:fix": "run-s lint:style:fix lint:source:fix",
-    "lint:source": "ESLINT_USE_FLAT_CONFIG=false eslint -c .eslintrc.js .; eslint -c eslint.config.mjs .",
+    "lint:source": "ESLINT_USE_FLAT_CONFIG=false ./node_modules/eslint8/bin/eslint.js -c .eslintrc.js . ; ./node_modules/eslint8/bin/eslint.js -c eslint.config.mjs . ; ./node_modules/eslint9/bin/eslint.js -c eslint.config.mjs .",
     "lint:source:fix": "eslint --fix .",
     "lint:style": "prettier --check .",
     "lint:style:fix": "prettier --write .",
@@ -78,6 +78,8 @@
     "conventional-changelog-conventionalcommits": "^8.0.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-import": "2.31.0",
+    "eslint8": "npm:eslint@^8.57.0",
+    "eslint9": "npm:eslint@^9.0.0",
     "husky": "9.1.7",
     "npm-run-all2": "7.0.2",
     "prettier": "3.4.2",
@@ -89,7 +91,7 @@
     "@stylistic/eslint-plugin": "^2.6.1",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.0 || ^9.0.0",
     "eslint-config-airbnb": "^19.0.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "typescript": "*"
@@ -104,5 +106,17 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "overrides": {
+    "eslint-config-airbnb": {
+      "peerDependencies": {
+        "eslint": "^8.57.0 || ^9.0.0"
+      }
+    },
+    "eslint-config-airbnb-base": {
+      "peerDependencies": {
+        "eslint": "^8.57.0 || ^9.0.0"
+      }
+    }
   }
 }

@@ -1,4 +1,8 @@
-const baseFlat = require('./lib/shared-flat');
+const { FlatCompat } = require('@eslint/eslintrc');
+const { convertConfigs } = require('./lib/convert-configs');
+const sharedFlat = require('./lib/shared-flat');
+
+const compat = new FlatCompat();
 
 const reactConfig = {
   settings: {
@@ -23,10 +27,19 @@ const legacyReactConfig = {
   ...reactConfig,
 };
 
-const flatReactConfig = [...baseFlat, reactConfig];
+const flatReactConfig = [
+  ...convertConfigs(compat.extends('eslint-config-airbnb')),
+  ...sharedFlat,
+  reactConfig,
+];
+
+const flatBaseConfig = [
+  ...convertConfigs(compat.extends('eslint-config-airbnb-base')),
+  ...sharedFlat,
+];
 
 const flatConfigs = {
-  base: baseFlat,
+  base: flatBaseConfig,
   react: flatReactConfig,
 };
 
