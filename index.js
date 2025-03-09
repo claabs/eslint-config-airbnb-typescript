@@ -27,16 +27,9 @@ const legacyReactConfig = {
   ...reactConfig,
 };
 
-const flatReactConfig = [
-  ...convertConfigs(compat.extends('eslint-config-airbnb')),
-  ...sharedFlat,
-  reactConfig,
-];
+const flatReactConfig = [...convertConfigs(compat.extends('airbnb')), ...sharedFlat, reactConfig];
 
-const flatBaseConfig = [
-  ...convertConfigs(compat.extends('eslint-config-airbnb-base')),
-  ...sharedFlat,
-];
+const flatBaseConfig = [...convertConfigs(compat.extends('airbnb-base')), ...sharedFlat];
 
 const flatConfigs = {
   base: flatBaseConfig,
